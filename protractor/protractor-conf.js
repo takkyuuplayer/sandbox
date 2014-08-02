@@ -5,4 +5,5 @@ exports.config = {
     browserName: 'phantomjs',
     'phantomjs.binary.path':'node_modules/phantomjs/bin/phantomjs'
   }
+  ,framework: 'jasmine'
 }
