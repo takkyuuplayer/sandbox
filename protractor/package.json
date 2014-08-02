@@ -1,0 +1,17 @@
+{
+  "name": "protractor",
+  "version": "0.0.0",
+  "description": "",
+  "main": "protractor-conf.js",
+  "dependencies": {
+    "phantomjs": "^1.9.7-15",
+    "protractor": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "pretest": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "test": "node ./node_modules/protractor/bin/protractor protractor-conf.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
