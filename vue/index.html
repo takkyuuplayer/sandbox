@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="./bower_components/vue/dist/vue.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
+    <script type="text/coffeescript">
+      demo = new Vue(
+        el: '#demo'
+        data:
+          title: 'todos'
+          todos: [
+            done: true
+            content: 'Learn Javascript'
+          ,
+            done: false
+            content: 'Learn Vue.js'
+          ]
+      )
+    </script>
+    <style type="text/css">
+.done {
+  text-decoration: line-through;
+}
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <h1>{{title | uppercase}}</h1>
+      <ul>
+        <li v-repeat="todos"
+          v-on="click: done=!done"
+          class="{{ done ? 'done' : ''}}">
+          {{ content }}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+
+
