@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <script src="./bower_components/vue/dist/vue.min.js"></script>
+    <script src="./bower_components/vue/dist/vue.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
     <script type="text/coffeescript">
       demo = new Vue(
@@ -24,6 +24,54 @@
             content: 'Learn Vue.js'
           ]
       )
+
+      directive = new Vue(
+        el: '#directive'
+        data:
+          message: 'fuga'
+          user:
+            firstName: 'Takafumi'
+            lastName:  'Sekiguchi'
+      )
+      directive.clickHandler = -> alert 1
+      directive.onClick = directive.onKeyup = directive.onKeydown = -> alert 1
+
+      Vue.directive 'demo2',
+        bind: ->
+          @el.style.color = '#fff'
+          @el.style.backgroundColor = @arg
+        update: (value) ->
+          @el.innerHTML = "
+            argument - #{@arg} <br>
+            key - #{@key} <br>
+            value - #{value}
+          "
+      demo2 = new Vue(
+        el: '#demo2'
+        data:
+          msg: 'Hello'
+      )
+
+      Vue.directive 'literal-dir',
+        isLiteral: true
+        bind: ->
+          alert @expression
+          console.log @expression
+      lit = new Vue(
+        el: "#demo3"
+      )
+
+      Vue.directive 'func-dir',
+        isFn: false
+        reset: ->
+          console.log 1
+        bind: ->
+          console.log 'func'
+          console.log @reset
+      hige = new Vue(
+        el: "#demo4"
+      )
+
     </script>
     <style type="text/css">
 .done {
@@ -42,6 +90,19 @@
         </li>
       </ul>
     </div>
+
+    <div id="directive">
+      <div v-text="message"></div>
+      <div v-text="'hello ' + user.firstName + ' ' + user.lastName"></div>
+      <div class="btn btn-default" v-on="click : clickHandler">alert</div>
+      <input v-on="click: onClick
+                  ,keyup: onKeyup
+                  ,keydown: onKeydown">
+      <div v-pre>hoo bar {{hoo}} {{bar}}<!-- markup in here will not be compiled --></div>
+    </div>
+    <div id="demo2" v-demo2="LightSlateGray : msg"></div>
+    <div id="demo3" v-literal-dir="foo">hohogee</div>
+    <div id="demo4" v-func-dir="foo">hohogee</div>
   </body>
 </html>
 
