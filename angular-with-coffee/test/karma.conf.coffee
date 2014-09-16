@@ -15,6 +15,31 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
+      "bower_components/jquery/dist/jquery.js"
+      "bower_components/angular/angular.js"
+      'bower_components/angular-mocks/angular-mocks.js'
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"
+      "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"
+      "bower_components/angular-resource/angular-resource.js"
+      "bower_components/angular-cookies/angular-cookies.js"
+      "bower_components/angular-sanitize/angular-sanitize.js"
+      "bower_components/angular-animate/angular-animate.js"
+      "bower_components/angular-touch/angular-touch.js"
+      "bower_components/angular-route/angular-route.js"
+
+      'app/scripts/**/*.coffee'
+      'test/mock/**/*.coffee'
+      'test/spec/**/*.coffee'
     ]
 
 
@@ -26,6 +51,7 @@ module.exports = (config) ->
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      '**/*.coffee': ['coffee']
     }
 
 
