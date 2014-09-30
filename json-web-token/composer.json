@@ -1,0 +1,15 @@
+{
+    "name": "sandbox/json-web-token",
+    "require-dev": {
+        "phpunit/phpunit": "~4.2"
+    },
+    "authors": [
+        {
+            "name": "takkyuuplayer",
+            "email": "takkyuuplayer@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
