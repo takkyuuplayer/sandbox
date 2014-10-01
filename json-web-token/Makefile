@@ -1,6 +1,11 @@
-init:
-	curl -sS https://getcomposer.org/installer | php
+PHP=$(shell which php)
+CURL=$(shell which curl)
 
-install:
-	php ./composer.phar install
+setup:
+	$(CURL) -s https://getcomposer.org/installer | php
 
+install: setup
+	$(PHP) composer.phar install
+
+test:
+	$(PHP) ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php -c ./phpunit.xml.dist ./tests
