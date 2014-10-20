@@ -1,13 +1,65 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}symblog{% endblock %} - symblog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {% block stylesheets %}
+      <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+      <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
+    <script type="text/coffeescript">
+    </script>
+  </head>
+  <body>
+    <section id="wrapper">
+        <header id="header">
+            <div class="top">
+                {% block navigation %}
+                    <nav>
+                        <ul class="navigation">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                {% endblock %}
+            </div>
+
+            <hgroup>
+                <h2>{% block blog_title %}<a href="#">symblog</a>{% endblock %}</h2>
+                <h3>{% block blog_tagline %}<a href="#">creating a blog in Symfony2</a>{% endblock %}</h3>
+            </hgroup>
+        </header>
+
+        <section class="main-col">
+            {% block body %}{% endblock %}
+        </section>
+        <aside class="sidebar">
+            {% block sidebar %}{% endblock %}
+        </aside>
+
+        <div id="footer">
+            {% block footer %}
+                Symfony2 blog tutorial - created by <a href="https://github.com/dsyph3r">dsyph3r</a>
+            {% endblock %}
+        </div>
+    </section>
+
+    {% block javascripts %}{% endblock %}
+  </body>
 </html>
