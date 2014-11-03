@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="choiceToArray">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
+    <script type="text/javascript">
+      angular.module('choiceToArray', [])
+        .controller('Ctrl', function($scope) {
+            $scope.nest = {
+              choices: [
+                { label: 'Apple', value: '1'}
+                ,{ label: 'Banana', value: '2'}
+                ,{ label: 'Chocolate', value: '3'}
+              ]
+              ,selected: ['1', '2']
+            };
+        })
+        .directive('myList', function() {
+          var link = function(scope, element, attrs) {
+            scope.toggle = function(choice_value) {
+                var index = scope.selected.indexOf(choice_value);
+                index > -1 ? scope.selected.splice(index, 1)
+                           : scope.selected.push(choice_value)
+                           ;
+            }
+          };
+
+          return {
+            restrict: 'E'
+            ,templateUrl: 'my_list'
+            ,scope: {
+              choices: '='
+              ,selected: '='
+            }
+            ,link: link
+          };
+        })
+      ;
+    </script>
+  </head>
+  <body>
+    <div ng-controller="Ctrl">
+      {{nest}}
+      {{test}}
+      <hr>
+      <my-list choices="nest.choices" selected="nest.selected"></my-list>
+    </div>
+<script type="text/ng-template" id="my_list">
+<div class="container-fluid">
+<h1>In Temprate</h1>
+<ul>
+  <li ng-repeat="choice in choices">
+    {{_.contains(selected, choice.value)}}
+    <input type="checkbox" value="{{choice.value}}"
+      ng-checked="selected.indexOf(choice.value) > -1"
+      ng-click="toggle(choice.value)"
+      > {{ choice.label }}
+  </li>
+</ul>
+<div class="row well">
+<legend>debug info</legend>
+<dl>
+  <dt>selected</dt><dd>{{ selected }}</dd>
+  <dt>choices</dt><dd>{{ choices}}</dd>
+  <dt>test</dt><dd>{{test}}</dd>
+</dl>
+</div>
+</div>
+</script>
+  </body>
+</html>
