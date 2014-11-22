@@ -1,1 +1,2 @@
+requires 'common::sense';
 requires 'Mojolicious';
