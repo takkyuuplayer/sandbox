@@ -1,10 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../../../lib/myApplicationConfiguration.class.php';
-
-class frontendConfiguration extends myApplicationConfiguration
+class frontendConfiguration extends sfApplicationConfiguration
 {
-    public function configure()
-    {
-    }
+  public function configure()
+  {
+  }
 }
