@@ -16,6 +16,10 @@ spa.shell = do ->
       <div class="spa-shell-chat"></div>
       <div class="spa-shell-modal"></div>
     '
+    chat_extend_time: 1000
+    chat_retract_time: 300
+    chat_extend_height: 450
+    chat_retract_height: 15
   stateMap =
     $container: null
 
@@ -23,11 +27,47 @@ spa.shell = do ->
 
   setJqueryMap = ->
     $container = stateMap.$container
-    jqueryMap = { $container: $container }
+    jqueryMap =
+      $container: $container
+      $chat: $container.find '.spa-shell-chat'
+
+  toggleChat = (do_extend, callback) ->
+    px_chat_ht = jqueryMap.$chat.height()
+    is_open = px_chat_ht is configMap.chat_extend_height
+    is_closed = px_chat_ht is configMap.chat_retract_height
+    is_sliding = not (is_open or is_closed)
+
+    if is_sliding
+      return false
+
+    if do_extend
+      jqueryMap.$chat.animate(
+        height: configMap.chat_extend_height
+        ,configMap.chat_extend_time
+        , ->
+          callback(jqueryMap.$chat) if callback
+        )
+      return true
+
+    jqueryMap.$chat.animate(
+      height: configMap.chat_retract_height
+      ,configMap.chat_retract_time
+      , ->
+        callback(jqueryMap.$chat) if callback
+      )
+    return true
 
   initModule = ($container) ->
     stateMap.$container = $container
     $container.html configMap.main_html
     setJqueryMap()
+
+    setTimeout ->
+      toggleChat(true)
+    , 3000
+
+    setTimeout ->
+      toggleChat(false)
+    , 8000
 
   return initModule: initModule
