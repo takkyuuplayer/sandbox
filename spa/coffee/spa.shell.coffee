@@ -2,6 +2,10 @@
 
 spa.shell = do ->
   configMap =
+    anchor_schema_map:
+      chat:
+        open: true
+        closed: true
     main_html: '
       <div class="spa-shell-head">
         <div class="spa-shell-head-logo"></div>
@@ -25,6 +29,65 @@ spa.shell = do ->
   stateMap =
     $container: null
     is_chat_retracted: true
+    anchor_map: {}
+
+  copyAnchorMap = ->
+    $.extend true, {}, stateMap.anchor_schema_map
+
+  changeAnchorPart = (arg_map) ->
+    anchor_map_revise = copyAnchorMap()
+    bool_return = true
+
+
+    `KEYVAL://`
+    for key_name of arg_map
+      continue if not arg_map.hasOwnProperty key_name
+
+      `continue KEYVAL` if key_name.indexOf('_') is 0
+
+      anchor_map_revise[key_name] = arg_map[key_name]
+
+      key_name_dep = "_#{key_name}"
+      if arg_map[key_name_dep]
+        anchor_map_revise[key_name_dep] = arg_map[key_name_dep]
+      else
+        delete anchor_map_revise[key_name_dep]
+        delete anchor_map_revise["_s#{key_name_dep}"]
+
+    try
+      $.uriAnchor.setAnchor anchor_map_revise
+    catch error
+      $.uriAnchor.setAnchor stateMap.anchor_map, null, true
+      bool_return = false
+
+    return bool_return
+
+  onHashchange= (event) ->
+    anchor_map_previous = copyAnchorMap()
+    try
+      anchor_map_proposed = $.uriAnchor.makeAnchorMap()
+    catch error
+      $.uriAnchor.setAnchor anchor_map_previous, null, true
+      return false
+
+    stateMap.anchor_map = anchor_map_proposed
+
+    _s_chat_previous = anchor_map_previous._s_chat
+    _s_chat_proposed = anchor_map_proposed._s_chat
+
+    if (not anchor_map_previous) or (_s_chat_previous isnt _s_chat_proposed)
+      s_chat_proposed = anchor_map_proposed.chat
+      switch s_chat_proposed
+        when 'open'
+          toggleChat true
+        when 'closed'
+          toggleChat false
+        else
+          toggleChat false
+          delete anchor_map_proposed.chat
+          $.uriAnchor.setAnchor anchor_map_proposed, null, true
+
+    false
 
   jqueryMap = {}
 
@@ -66,7 +129,9 @@ spa.shell = do ->
     true
 
   onClickChat = (event) ->
-    toggleChat stateMap.is_chat_retracted
+    changeAnchorPart(
+      chat: (if stateMap.is_chat_retracted then 'open' else 'closed')
+    )
     false
 
   initModule = ($container) ->
@@ -78,5 +143,11 @@ spa.shell = do ->
     jqueryMap.$chat
       .attr 'title', configMap.chat_retracted_title
       .click onClickChat
+
+    $.uriAnchor.configModule(
+      schema_map: configMap.anchor_schema_map
+    )
+    $(window).on 'hashchange', onHashchange
+      .trigger 'hashchange'
 
   return initModule: initModule
