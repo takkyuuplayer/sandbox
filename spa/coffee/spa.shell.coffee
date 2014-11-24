@@ -16,15 +16,18 @@ spa.shell = do ->
       <div class="spa-shell-chat"></div>
       <div class="spa-shell-modal"></div>
     '
-  stateMap:
+  stateMap =
     $container: null
-  jqueryMap: {}
-  setJqueryMap: ->
+
+  jqueryMap = {}
+
+  setJqueryMap = ->
     $container = stateMap.$container
     jqueryMap = { $container: $container }
-  initModule: ($container) ->
+
+  initModule = ($container) ->
     stateMap.$container = $container
-    $cointainer.html configMap.main_html
+    $container.html configMap.main_html
     setJqueryMap()
 
   return initModule: initModule

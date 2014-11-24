@@ -6,7 +6,7 @@
   spa = (function() {
     return {
       initModule: function($container) {
-        return $container.html('<h1 style="display:inline-block;margin:25px"> hello world! </h1>');
+        return spa.shell.initModule($container);
       }
     };
   })();
@@ -16,28 +16,26 @@
   'use strict';
 
   spa.shell = (function() {
-    var configMap;
+    var configMap, initModule, jqueryMap, setJqueryMap, stateMap;
     configMap = {
       main_html: '<div class="spa-shell-head"> <div class="spa-shell-head-logo"></div> <div class="spa-shell-head-acct"></div> <div class="spa-shell-head-search"></div> </div> <div class="spa-shell-main"> <div class="spa-shell-main-nav"></div> <div class="spa-shell-main-content"></div> </div> <div class="spa-shell-foot"></div> <div class="spa-shell-chat"></div> <div class="spa-shell-modal"></div>'
     };
-    ({
-      stateMap: {
-        $container: null
-      },
-      jqueryMap: {},
-      setJqueryMap: function() {
-        var $container, jqueryMap;
-        $container = stateMap.$container;
-        return jqueryMap = {
-          $container: $container
-        };
-      },
-      initModule: function($container) {
-        stateMap.$container = $container;
-        $cointainer.html(configMap.main_html);
-        return setJqueryMap();
-      }
-    });
+    stateMap = {
+      $container: null
+    };
+    jqueryMap = {};
+    setJqueryMap = function() {
+      var $container;
+      $container = stateMap.$container;
+      return jqueryMap = {
+        $container: $container
+      };
+    };
+    initModule = function($container) {
+      stateMap.$container = $container;
+      $container.html(configMap.main_html);
+      return setJqueryMap();
+    };
     return {
       initModule: initModule
     };

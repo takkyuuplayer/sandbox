@@ -115,7 +115,7 @@ strong {
   clear: both   !important;
 }
 
-/* line 1, ../sass/spa.layout.scss */
+/* line 1, ../sass/spa.shell.scss */
 .spa-shell-head, .spa-shell-head-logo, .spa-shell-head-acct,
 .spa-shell-head-search, .spa-shell-main, .spa-shell-main-nav,
 .spa-shell-main-content, .spa-shell-foot, .spa-shell-chat,
@@ -123,7 +123,7 @@ strong {
   position: absolute;
 }
 
-/* line 7, ../sass/spa.layout.scss */
+/* line 7, ../sass/spa.shell.scss */
 .spa-shell-head {
   top: 0;
   left: 0;
@@ -131,7 +131,7 @@ strong {
   height: 40px;
 }
 
-/* line 13, ../sass/spa.layout.scss */
+/* line 13, ../sass/spa.shell.scss */
 .spa-shell-head-logo {
   top: 4px;
   left: 4px;
@@ -140,7 +140,7 @@ strong {
   background: orange;
 }
 
-/* line 20, ../sass/spa.layout.scss */
+/* line 20, ../sass/spa.shell.scss */
 .spa-shell-head-acct {
   top: 4px;
   right: 0;
@@ -149,7 +149,7 @@ strong {
   background: green;
 }
 
-/* line 27, ../sass/spa.layout.scss */
+/* line 27, ../sass/spa.shell.scss */
 .spa-shell-head-search {
   top: 4px;
   right: 64px;
@@ -158,7 +158,7 @@ strong {
   background: blue;
 }
 
-/* line 34, ../sass/spa.layout.scss */
+/* line 34, ../sass/spa.shell.scss */
 .spa-shell-main {
   top: 40px;
   left: 0;
@@ -166,37 +166,37 @@ strong {
   right: 0;
 }
 
-/* line 40, ../sass/spa.layout.scss */
+/* line 40, ../sass/spa.shell.scss */
 .spa-shell-main-content,
 .spa-shell-main-nav {
   top: 0;
   bottom: 0;
 }
 
-/* line 45, ../sass/spa.layout.scss */
+/* line 45, ../sass/spa.shell.scss */
 .spa-shell-main-nav {
   width: 250px;
   background: #eee;
 }
 
-/* line 49, ../sass/spa.layout.scss */
+/* line 49, ../sass/spa.shell.scss */
 .spa-x-closed .spa-shell-main-nav {
   width: 0;
 }
 
-/* line 52, ../sass/spa.layout.scss */
+/* line 52, ../sass/spa.shell.scss */
 .spa-shell-main-content {
   left: 250px;
   right: 0;
   background: #ddd;
 }
 
-/* line 57, ../sass/spa.layout.scss */
+/* line 57, ../sass/spa.shell.scss */
 .spa-x-closed .spa-shell-main-content {
   left: 0;
 }
 
-/* line 60, ../sass/spa.layout.scss */
+/* line 60, ../sass/spa.shell.scss */
 .spa-shell-foot {
   bottom: 0;
   left: 0;
@@ -204,7 +204,7 @@ strong {
   height: 40px;
 }
 
-/* line 66, ../sass/spa.layout.scss */
+/* line 66, ../sass/spa.shell.scss */
 .spa-shell-chat {
   bottom: 0;
   right: 0;
@@ -214,7 +214,7 @@ strong {
   z-index: 1;
 }
 
-/* line 74, ../sass/spa.layout.scss */
+/* line 74, ../sass/spa.shell.scss */
 .spa-shell-modal {
   margin-top: -200px;
   margin-left: -200px;
