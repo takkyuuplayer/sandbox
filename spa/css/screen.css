@@ -66,3 +66,51 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
+
+/* line 1, ../sass/spa.scss */
+body {
+  font: 13px 'Trebuchet MS', Verdana, Helvetica, Arial, sans-serif;
+  color: #444;
+  background-color: #888;
+}
+
+/* line 6, ../sass/spa.scss */
+a {
+  text-decoration: none;
+}
+/* line 8, ../sass/spa.scss */
+a:link, a:visited {
+  color: inherit;
+}
+/* line 11, ../sass/spa.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 15, ../sass/spa.scss */
+strong {
+  font-weight: 800;
+  color: #000;
+}
+
+/* line 20, ../sass/spa.scss */
+#spa {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  bottom: 8px;
+  right: 8px;
+  min-height: 500px;
+  min-width: 500px;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 0 8px 0 8px;
+}
+
+/* line 34, ../sass/spa.scss */
+.spa-x-clearfloat {
+  height: 0      !important;
+  float: none   !important;
+  visibility: hidden !important;
+  clear: both   !important;
+}
