@@ -16,16 +16,19 @@
   'use strict';
 
   spa.shell = (function() {
-    var configMap, initModule, jqueryMap, setJqueryMap, stateMap, toggleChat;
+    var configMap, initModule, jqueryMap, onClickChat, setJqueryMap, stateMap, toggleChat;
     configMap = {
       main_html: '<div class="spa-shell-head"> <div class="spa-shell-head-logo"></div> <div class="spa-shell-head-acct"></div> <div class="spa-shell-head-search"></div> </div> <div class="spa-shell-main"> <div class="spa-shell-main-nav"></div> <div class="spa-shell-main-content"></div> </div> <div class="spa-shell-foot"></div> <div class="spa-shell-chat"></div> <div class="spa-shell-modal"></div>',
       chat_extend_time: 1000,
       chat_retract_time: 300,
       chat_extend_height: 450,
-      chat_retract_height: 15
+      chat_retract_height: 15,
+      chat_extended_title: 'Click to retract',
+      chat_retracted_title: 'Click to extend'
     };
     stateMap = {
-      $container: null
+      $container: null,
+      is_chat_retracted: true
     };
     jqueryMap = {};
     setJqueryMap = function() {
@@ -49,6 +52,8 @@
         jqueryMap.$chat.animate({
           height: configMap.chat_extend_height
         }, configMap.chat_extend_time, function() {
+          jqueryMap.$chat.attr('title', configMap.chat_extend_title);
+          stateMap.is_chat_retracted = false;
           if (callback) {
             return callback(jqueryMap.$chat);
           }
@@ -58,22 +63,24 @@
       jqueryMap.$chat.animate({
         height: configMap.chat_retract_height
       }, configMap.chat_retract_time, function() {
+        jqueryMap.$chat.attr('title', configMap.chat_retracted_title);
+        stateMap.is_chat_retracted = true;
         if (callback) {
           return callback(jqueryMap.$chat);
         }
       });
       return true;
     };
+    onClickChat = function(event) {
+      toggleChat(stateMap.is_chat_retracted);
+      return false;
+    };
     initModule = function($container) {
       stateMap.$container = $container;
       $container.html(configMap.main_html);
       setJqueryMap();
-      setTimeout(function() {
-        return toggleChat(true);
-      }, 3000);
-      return setTimeout(function() {
-        return toggleChat(false);
-      }, 8000);
+      stateMap.is_chat_retracted = true;
+      return jqueryMap.$chat.attr('title', configMap.chat_retracted_title).click(onClickChat);
     };
     return {
       initModule: initModule
