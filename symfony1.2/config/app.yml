@@ -1,0 +1,2 @@
+all:
+  sensitive_config_dir; %SF_ROOT_DIR%/local-git/sf/apps/%SF_APP%/config

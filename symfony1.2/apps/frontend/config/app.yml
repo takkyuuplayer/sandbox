@@ -1,2 +1,10 @@
 # default values
-#all:
+all:
+  test_params:
+    val1: "foobar"
+    val2: "hogefuga"
+  nested_test_params:
+    val1:
+      val11: "foobar"
+    val2:
+      val21: "foobar"

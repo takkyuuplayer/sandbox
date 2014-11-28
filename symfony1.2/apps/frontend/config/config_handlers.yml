@@ -1,0 +1,4 @@
+%SF_ROOT_DIR/local-git/%SF_APP/app.yml:
+  class:    sfDefineEnvironmentConfigHandler
+  param:
+    prefix: sensitive_
