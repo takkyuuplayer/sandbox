@@ -1,0 +1,8 @@
+# carton snapshot format: version 1.0
+DISTRIBUTIONS
+  common-sense-3.72
+    pathname: M/ML/MLEHMANN/common-sense-3.72.tar.gz
+    provides:
+      common::sense 3.72
+    requirements:
+      ExtUtils::MakeMaker 0
