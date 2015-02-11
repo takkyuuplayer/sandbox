@@ -1,0 +1,2 @@
+requires 'common::sense';
+requires 'Test::Pretty';
