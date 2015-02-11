@@ -73,6 +73,29 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008000
       version 0.87
+  Perl-Tidy-20140711
+    pathname: S/SH/SHANCOCK/Perl-Tidy-20140711.tar.gz
+    provides:
+      Perl::Tidy 20140711
+      Perl::Tidy::Debugger 20140711
+      Perl::Tidy::DevNull 20140711
+      Perl::Tidy::Diagnostics 20140711
+      Perl::Tidy::FileWriter 20140711
+      Perl::Tidy::Formatter 20140711
+      Perl::Tidy::HtmlWriter 20140711
+      Perl::Tidy::IOScalar 20140711
+      Perl::Tidy::IOScalarArray 20140711
+      Perl::Tidy::IndentationItem 20140711
+      Perl::Tidy::LineBuffer 20140711
+      Perl::Tidy::LineSink 20140711
+      Perl::Tidy::LineSource 20140711
+      Perl::Tidy::Logger 20140711
+      Perl::Tidy::Tokenizer 20140711
+      Perl::Tidy::VerticalAligner 20140711
+      Perl::Tidy::VerticalAligner::Alignment 20140711
+      Perl::Tidy::VerticalAligner::Line 20140711
+    requirements:
+      ExtUtils::MakeMaker 0
   Scope-Guard-0.20
     pathname: C/CH/CHOCOLATE/Scope-Guard-0.20.tar.gz
     provides:
