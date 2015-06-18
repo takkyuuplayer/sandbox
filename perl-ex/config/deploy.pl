@@ -25,3 +25,13 @@ task deploy => sub {
     my ($host) = @_;
     call "rsync", $host;
 };
+
+__END__
+
+=encoding utf-8
+
+=head1 SYNOPSIS
+
+At your shell,
+
+    % carton exec -- cinnamon vagrant deploy
