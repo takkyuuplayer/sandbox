@@ -7,22 +7,11 @@ set user        => 'vagrant';
 set rsync_src   => '/tmp/cinnamon-deployment';
 
 role
-    vagrant => ['localhost'],
+    vagrant => ['localhost', '127.0.0.1'],
     {
     deploy_to => '/srv/work/cinnamon-deployment',
     branch    => 'master',
     };
-
-task setup => sub {
-    my ($host)     = @_;
-    my $repository = get('repository');
-    my $rsync_src  = get('rsync_src');
-    my $deploy_to  = get('deploy_to');
-    my $branch     = 'origin/' . get('branch');
-    run "rm",  '-rf',      $rsync_src;
-    run "git", "clone",    $repository, $rsync_src;
-    run "git", 'checkout', '-q', $branch;
-};
 
 task rsync => sub {
     my ($host)    = @_;
@@ -34,6 +23,5 @@ task rsync => sub {
 
 task deploy => sub {
     my ($host) = @_;
-    call "setup", $host;
     call "rsync", $host;
 };
