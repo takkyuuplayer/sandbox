@@ -21,6 +21,7 @@ task setup => sub {
     my $branch     = 'origin/' . get('branch');
     run "rm",  '-rf',      $rsync_src;
     run "git", "clone",    $repository, $rsync_src;
+    # run "cd", "$rsync_src"; # XXX something wrong
     run "git", 'checkout', '-q', $branch;
 };
 
