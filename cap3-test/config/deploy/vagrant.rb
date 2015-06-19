@@ -11,7 +11,7 @@ before :"rsync:sync", :import_local_git do
     execute :git, :clone, 'git@github.com-tp:takkyuuplayer/dotfiles.git', "#{fetch(:rsync_src)}/local-git" \
       if not File.directory? "#{fetch(:rsync_src)}/local-git"
     execute "cd #{fetch(:rsync_src)} && git fetch --quiet --all --prune"
-    execute "cd #{fetch(:rsync_src)} && git reset --hard origin/#{fetch(:branch_)}"
+    execute "cd #{fetch(:rsync_src)} && git reset --hard origin/master"
   end
 end
 
