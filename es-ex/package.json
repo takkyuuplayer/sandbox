@@ -13,7 +13,7 @@
     "power-assert": "^0.11.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --require 'espower-coffee/guess' test/**/*.coffee"
   },
   "author": "",
   "license": "ISC"
