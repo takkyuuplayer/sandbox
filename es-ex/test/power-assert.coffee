@@ -25,4 +25,4 @@ describe "various types", ->
   it "demo", ->
     index = @types.length - 1
     bob = new Person("bob", 5)
-    assert @types[index].name is bob.name
+    assert @types[index].name isnt bob.name
