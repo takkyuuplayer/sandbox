@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4d8185e854a5ecf7b4d830560a70eceb",
-    "content-hash": "b20c581067d726ba8e1b526afefaefb5",
+    "hash": "dd28a5c3ef7ae0043d565728449942db",
+    "content-hash": "4d3ef5f552eb02623a82fa40b2871d81",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1579,6 +1579,34 @@
             "time": "2016-01-14 10:41:56"
         },
         {
+            "name": "takkyuuplayer/sandbox-doctrine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/takkyuuplayer/sandbox-doctrine.git",
+                "reference": "d55dd102d8a1111a7f4da003355d902b93332475"
+            },
+            "require": {
+                "doctrine/orm": "~2.2,>=2.2.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DoctrineTest\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "takkyuuplayer",
+                    "email": "takkyuuplayer@gmail.com"
+                }
+            ],
+            "time": "2016-01-19 18:07:47"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.23.3",
             "source": {
@@ -1747,7 +1775,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "takkyuuplayer/sandbox-doctrine": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
