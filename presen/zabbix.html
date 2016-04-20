@@ -39,14 +39,14 @@ Zabbix consists of ...
   * To reduce server load
 
 * Agent
- * deployed on monitoring targets
- * report data to Server
+  * deployed on monitoring targets
+  * report data to Server
 
 ---
 
 # Steps
 
-* Create Host -> Item -> Trigger -> Action
+* Create Host -&gt; Item -&gt; Trigger -&gt; Action
 * We can use template for above.
 
 ---
@@ -56,7 +56,37 @@ Zabbix consists of ...
 * Polling and traping data
 * Agent/Proxy send data to server
 * Config is stored in DB and cached every 2 min.
-* C
+
+---
+
+# Consepts - Agent
+
+* deployed on monitoring target
+* report data to Server
+  * data can be gethered by native system calls
+* Passive check, Active check
+  * Passive check, Active check
+
+---
+
+# Installation
+
+* https://github.com/takkyuuplayer/ubuntu-provisioning/tree/master/cookbooks/monitor
+
+---
+
+# Quickstart - New User
+
+* Group
+* Notification setting
+* Right setting
+
+---
+
+# Quickstart - New host
+
+* host = network entitity I want to monitor
+  * e.g.) physical server, network switch, etc...
 
 
     </textarea>
