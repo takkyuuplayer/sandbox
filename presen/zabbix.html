@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+zabbix 2.4
+
+---
+
+# Overview
+
+Zabbix consists of ...
+
+* Server
+  * Database strage
+    * configuration
+    * monitoring data
+  * Web interface
+
+* Proxy (optional)
+  * To reduce server load
+
+* Agent
+  * deployed on monitoring targets
+  * report data to Server
+
+---
+
+# Steps
+
+* Create Host -&gt; Item -&gt; Trigger -&gt; Action
+* We can use template for above.
+
+---
+
+# Consepts - Server
+
+* Polling and traping data
+* Agent/Proxy send data to server
+* Config is stored in DB and cached every 2 min.
+
+---
+
+# Consepts - Agent
+
+* deployed on monitoring target
+* report data to Server
+  * data can be gethered by native system calls
+* Passive check, Active check
+  * Passive check, Active check
+
+---
+
+# Installation
+
+* https://github.com/takkyuuplayer/ubuntu-provisioning/tree/master/cookbooks/monitor
+
+---
+
+# Quickstart - New User
+
+* Group
+* Notification setting
+* Right setting
+
+---
+
+# Quickstart - New host
+
+* host = network entitity I want to monitor
+  * e.g.) physical server, network switch, etc...
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
