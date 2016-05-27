@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "redis": "^2.6.0-2"
+  },
   "devDependencies": {
     "coffee-script": "^1.9.3",
     "espower-coffee": "^0.10.0",
