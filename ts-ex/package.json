@@ -1,0 +1,21 @@
+{
+  "name": "ts-ex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers ts:espower-typescript/guess test/**/*.ts",
+    "install": "./node_modules/.bin/tsd query mocha -rosa install; ./node_modules/.bin/tsd query power-assert -rosa install; ./node_modules/.bin/tsd query empower -rosa install;"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "espower-typescript": "^5.0.1",
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^2.5.3",
+    "power-assert": "^1.4.1"
+  }
+}
