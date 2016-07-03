@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --compilers ts:espower-typescript/guess test/**/*.ts",
-    "install": "./node_modules/.bin/tsd query mocha -rosa install; ./node_modules/.bin/tsd query power-assert -rosa install; ./node_modules/.bin/tsd query empower -rosa install;"
+    "postinstall": "./node_modules/.bin/typings install"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "espower-typescript": "^5.0.1",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^2.5.3",
-    "power-assert": "^1.4.1"
+    "power-assert": "^1.4.1",
+    "typings": "^1.3.1"
   }
 }
