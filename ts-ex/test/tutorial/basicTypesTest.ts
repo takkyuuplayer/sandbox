@@ -1,4 +1,4 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../typings/index.d.ts" />
 
 import * as assert from 'power-assert';
 
