@@ -1,3 +1,0 @@
-requires 'common::sense';
-requires 'Mojolicious';
-requires 'Amazon::S3';
